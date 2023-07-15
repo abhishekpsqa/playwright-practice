@@ -1,2 +1,2 @@
 # playwright-practice
-Just me practicing playwright 
+This is a practice repository, I am practicing web automation with playwright using typescript.
