@@ -1,4 +1,6 @@
 import {test, expect} from '@playwright/test'
+import type { Page } from 'playwright-core';
+
 
 test("Iframes", async({page})=>{
     await page.goto("https://letcode.in/frame")
@@ -33,8 +35,8 @@ test("handling multiple tabs", async({page})=>{
     await page.waitForLoadState();
     const pages = multiPage.context().pages()
     let index:number;
-    let facebookPage:Page=null;
-    let twitterPage:Page=null;
+    let facebookPage:Page;
+    let twitterPage:Page;
     console.log(pages[0].url());
     for(index=0; index<pages.length; index++){
         if(pages[index].url().includes("twitter")){
