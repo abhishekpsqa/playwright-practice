@@ -12,7 +12,7 @@ test("select dropdown value", async({page})=>{
     //select option with label
     await page.selectOption("//select[@id='select-demo']",{
         label:"Tuesday"
-    });
+     });
     await page.waitForTimeout(2000);
     //select option with index
     await page.selectOption("//select[@id='select-demo']",{
@@ -31,4 +31,17 @@ test("multiselect drop down test", async({page})=>{
         value:"Ohio"
     }])
     await page.waitForTimeout(2000);
+})
+
+// Jquery dropdown test, searchable dropdown
+
+test("select jquery dropdown value", async({page})=>{
+    await page.goto("https://www.lambdatest.com/selenium-playground/jquery-dropdown-search-demo")
+    await selectCountry("Australia");
+    await selectCountry("India");
+
+    async function selectCountry(countryName:string) {
+        await page.click("//select[@id='country']/../span");
+        await page.click(`//li[normalize-space()='${countryName}']`);
+    }
 })
