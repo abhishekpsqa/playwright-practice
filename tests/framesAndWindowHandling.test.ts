@@ -21,8 +21,8 @@ test("handling single tabs", async({page})=>{
     const [newWindow] = await Promise.all([
         page.waitForEvent('popup'),
         page.click("//a[normalize-space()='Follow On Twitter']")
-    ] )
-    console.log(await newWindow.url());
+    ])
+    console.log(newWindow.url());
 
 })
 
